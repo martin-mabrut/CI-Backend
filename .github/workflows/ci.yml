@@ -1,5 +1,5 @@
 name : CI Symfony
-run-name: ${{ github.actor }} et Najim font une CI Symfony !
+run-name: Ça va Gwenola ?
 on: [push]
 jobs:
   symfony:
@@ -52,3 +52,6 @@ jobs:
 
     - name: CS-fixer
       run: vendor/bin/php-cs-fixer fix
+
+    - name: Tests
+      run: ./vendor/bin/phpunit
