@@ -18,11 +18,12 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
         ports:
           - 3506:3506
-        options:
-          --health-cmd "pg_isready -d app -U app"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+          --health-start-period=10s
 
     steps:
     - name: Récupérer le code
