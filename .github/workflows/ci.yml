@@ -25,6 +25,21 @@ jobs:
           --health-timeout=5s
           --health-retries=5
           --health-start-period=10s
+      
+    services:
+      mariadb:
+        image: mariadb:10.6
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MARIADB_DATABASE: pitstop_test
+        ports:
+          - 3506:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+          --health-start-period=10s
 
     steps:
     - name: Récupérer le code
