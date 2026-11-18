@@ -49,4 +49,6 @@ jobs:
 
     - name: Php stan
       run: composer require --dev phpstan/phpstan
-      continue-on-error: true
+
+    - name: CS-fixer
+      run: vendor/bin/php-cs-fixer fix
