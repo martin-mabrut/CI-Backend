@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: "mysql://root:root@db:3306/pitstop"
+      DATABASE_URL: "mysql://root:root@127.0.0.1:3506/pitstop"
       ES_HOST: "localhost"
       ES_PORT: "8000"
 
