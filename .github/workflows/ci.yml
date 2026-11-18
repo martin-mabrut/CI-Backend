@@ -1,0 +1,48 @@
+name : CI Symfony
+run-name: ${{ github.actor }} et Najim font une CI Symfony !
+on: [push]
+jobs:
+  symfony:
+    name: CI symfony
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: "mysql://root:root@db:3506/pitstop"
+      ES_HOST: "localhost"
+      ES_PORT: "8000"
+
+    services:
+      mariadb:
+        image: mariadb:10.6
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3506:3506
+
+    steps:
+    - name: Récupérer le code
+      uses: actions/checkout@v7
+
+    - name: Installation php
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.1
+
+    - name: Installation des dépendances
+      uses: ramsey/composer-install@v4
+      with:
+        require-lock-file: true
+      
+    - name: Mise en place de la BDD
+      run: |
+        php bin/console doctrine:database:create --if-not-exists
+        php bin/console doctrine:database:migrate --no-interaction
+
+    - name: Validate database schema
+      run: |
+        php bin/console doctrine:schema:validate || {
+          echo "::group::Schema changes"
+          php bin/console doctrine:schema:update --dump-sql
+          echo "::endgroup::"
+          exit 1
+        }
