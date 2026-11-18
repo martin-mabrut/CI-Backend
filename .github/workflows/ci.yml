@@ -16,6 +16,7 @@ jobs:
         image: mariadb:10.6
         env:
           MYSQL_ROOT_PASSWORD: root
+          MARIADB_DATABASE: pitstop
         ports:
           - 3506:3306
         options: >-
