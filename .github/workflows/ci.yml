@@ -46,3 +46,7 @@ jobs:
         php bin/console lint:twig templates/
         php bin/console lint:container
         php bin/console lint:translations
+
+    - name: Php stan
+      run: composer require --dev phpstan/phpstan
+      continue-on-error: true
