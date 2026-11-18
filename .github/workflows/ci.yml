@@ -1,5 +1,5 @@
 name : CI Symfony
-run-name: Gwenola si tu vois ça dis GloubiBoulga 
+run-name: Gwenola t'es là ?
 on: [push]
 jobs:
   symfony:
