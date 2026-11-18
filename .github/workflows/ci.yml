@@ -28,10 +28,11 @@ jobs:
       with:
         php-version: 8.1
 
+    - name: MAJ des dépendances
+      run: composer update
+
     - name: Installation des dépendances
-      uses: ramsey/composer-install@v4
-      with:
-        require-lock-file: true
+      run: composer install
       
     - name: Mise en place de la BDD
       run: |
