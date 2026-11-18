@@ -1,5 +1,5 @@
 name : CI Symfony
-run-name: Gwenolalala !
+run-name: Gwenolalalilaliloulou !
 on: [push]
 jobs:
   symfony:
@@ -19,7 +19,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
           MARIADB_DATABASE: pitstop_test
         ports:
-          - 3506:3306
+          - 3306:3306
         options: >-
           --health-cmd="healthcheck.sh --connect --innodb_initialized"
           --health-interval=10s
