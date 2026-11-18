@@ -28,11 +28,11 @@ jobs:
       with:
         php-version: 8.1
 
-    - name: MAJ des dépendances
-      run: composer update
-
     - name: Installation des dépendances
       run: composer install
+
+    - name: MAJ des dépendances
+      run: composer update
       
     - name: Mise en place de la BDD
       run: |
