@@ -1,5 +1,5 @@
 name : CI Symfony
-run-name: Gwenola t'es là ?
+run-name: Gwenolalala !
 on: [push]
 jobs:
   symfony:
@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: "mysql://root:root@127.0.0.1:3506/pitstop"
+      APP_ENV: test
+      DATABASE_URL: "mysql://root:root@127.0.0.1:3306/pitstop"
       ES_HOST: "localhost"
       ES_PORT: "8000"
 
@@ -16,7 +17,7 @@ jobs:
         image: mariadb:10.6
         env:
           MYSQL_ROOT_PASSWORD: root
-          MARIADB_DATABASE: pitstop
+          MARIADB_DATABASE: pitstop_test
         ports:
           - 3506:3306
         options: >-
@@ -25,13 +26,12 @@ jobs:
           --health-timeout=5s
           --health-retries=5
           --health-start-period=10s
-      
-    services:
+    
       mariadb:
         image: mariadb:10.6
         env:
           MYSQL_ROOT_PASSWORD: root
-          MARIADB_DATABASE: pitstop_test
+          MARIADB_DATABASE: pitstop
         ports:
           - 3506:3306
         options: >-
