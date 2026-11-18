@@ -40,12 +40,9 @@ jobs:
         php bin/console doctrine:database:create --if-not-exists
         php bin/console doctrine:migrations:migrate --no-interaction
 
-
-    - name: Validate database schema
+    - name: Linter
       run: |
-        php bin/console doctrine:schema:validate || {
-          echo "::group::Schema changes"
-          php bin/console doctrine:schema:update --force --complete --dump-sql
-          echo "::endgroup::"
-          exit 1
-        }
+        php bin/console lint:yaml config/
+        php bin/console lint:twig templates/
+        php bin/console lint:container
+        php bin/console lint:translations
