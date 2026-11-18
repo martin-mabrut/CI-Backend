@@ -55,5 +55,8 @@ jobs:
     - name: CS-fixer
       run: vendor/bin/php-cs-fixer fix
 
+    - name: Fixtures
+      run: php bin/console doctrine:fixtures:load --no-interaction
+
     - name: Tests
       run: ./vendor/bin/phpunit
