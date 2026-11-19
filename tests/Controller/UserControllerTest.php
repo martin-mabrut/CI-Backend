@@ -5,7 +5,7 @@ namespace App\Tests;
 use App\Repository\UserRepository;
 use App\Tests\AbstractKernelTestCase;
 
-class SafetyInspectionRepositoryTest extends AbstractKernelTestCase
+class UserControllerTest extends AbstractKernelTestCase
 {
 
     public function testGetUserList(): void
