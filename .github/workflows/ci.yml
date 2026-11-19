@@ -35,29 +35,29 @@ jobs:
     - name: 'Create env file'
       run: |
         touch .env
-        echo APP_ENV= ${{ secrets.APP_ENV }} >> .env
-        echo APP_SHARE_DIR=${{ secrets.APP_SHARE_DIR }} >> .env
-        echo DEFAULT_URI= ${{ secrets.DEFAULT_URI }} >> .env
-        echo DATABASE_URL= ${{ secrets.DATABASE_URL }} >> .env
-        echo MESSENGER_TRANSPORT_DSN= ${{ secrets.MESSENGER_TRANSPORT_DSN }} >> .env
-        echo CORS_ALLOW_ORIGIN= ${{ secrets.CORS_ALLOW_ORIGIN }} >> .env
-        echo JWT_SECRET_KEY= ${{ secrets.JWT_SECRET_KEY }} >> .env
-        echo JWT_PUBLIC_KEY= ${{ secrets.JWT_PUBLIC_KEY }} >> .env
-        echo JWT_PASSPHRASE= ${{ secrets.JWT_PASSPHRASE }} >> .env
+        echo APP_ENV= ${{secrets.APP_ENV}} >> .env
+        echo APP_SHARE_DIR=${{secrets.APP_SHARE_DIR}} >> .env
+        echo DEFAULT_URI= ${{secrets.DEFAULT_URI}} >> .env
+        echo DATABASE_URL= ${{secrets.DATABASE_URL}} >> .env
+        echo MESSENGER_TRANSPORT_DSN= ${{secrets.MESSENGER_TRANSPORT_DSN}} >> .env
+        echo CORS_ALLOW_ORIGIN= ${{secrets.CORS_ALLOW_ORIGIN}} >> .env
+        echo JWT_SECRET_KEY= ${{secrets.JWT_SECRET_KEY}} >> .env
+        echo JWT_PUBLIC_KEY= ${{secrets.JWT_PUBLIC_KEY}} >> .env
+        echo JWT_PASSPHRASE= ${{secrets.JWT_PASSPHRASE}} >> .env
         cat .env
 
     - name: 'Create env.dev file'
       run: |
         touch .env.dev
-        echo APP_SECRET= ${{ secrets.APP_SECRET_DEV }} >> .env.dev
+        echo APP_SECRET= ${{secrets.APP_SECRET_DEV}} >> .env.dev
         cat .env.dev
 
     - name: 'Create env.test file'
       run: |
         touch .env.test
-        echo KERNEL_CLASS= ${{ secrets.KERNEL_CLASS }} >> .env.test
-        echo APP_SECRET= ${{ secrets.APP_SECRET_TEST }} >> .env.test
-        echo DATABASE_URL= ${{ secrets.DATABASE_URL_TEST }} >> .env.test
+        echo KERNEL_CLASS= ${{secrets.KERNEL_CLASS}} >> .env.test
+        echo APP_SECRET= ${{secrets.APP_SECRET_TEST}} >> .env.test
+        echo DATABASE_URL= ${{secrets.DATABASE_URL_TEST}} >> .env.test
         cat .env.test
 
     - name: Installation des dépendances
