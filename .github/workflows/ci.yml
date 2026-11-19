@@ -41,6 +41,7 @@ jobs:
         echo DATABASE_URL= ${{ secrets.DATABASE_URL }} >> .env
         echo MESSENGER_TRANSPORT_DSN= ${{ secrets.MESSENGER_TRANSPORT_DSN }} >> .env
         echo CORS_ALLOW_ORIGIN= ${{ secrets.CORS_ALLOW_ORIGIN }} >> .env
+        echo MAILER_DSN= ${{ secrets.MAILER_DSN }} >> .env
         echo JWT_SECRET_KEY= ${{ secrets.JWT_SECRET_KEY }} >> .env
         echo JWT_PUBLIC_KEY= ${{ secrets.JWT_PUBLIC_KEY }} >> .env
         echo JWT_PASSPHRASE= ${{ secrets.JWT_PASSPHRASE }} >> .env
