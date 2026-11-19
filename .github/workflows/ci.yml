@@ -1,5 +1,5 @@
 name : CI Symfony
-run-name: Pourquoi tu dis rien Gwenola ? Y a les variables
+run-name: Pourquoi tu dis rien Gwenola ? Y a les SECRETS
 on: [push]
 jobs:
   symfony:
@@ -7,17 +7,17 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      APP_ENV: $APP_ENV
-      DATABASE_URL: $DATABASE_URL
-      ES_HOST: $ES_HOST
-      ES_PORT: $ES_PORT
+      APP_ENV: ${{ secrets.APP_ENV }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      ES_HOST: ${{ secrets.ES_HOST }}
+      ES_PORT: ${{ secrets.ES_PORT }}
 
     services:
       mariadb:
         image: mariadb:10.6
         env:
-          MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-          MARIADB_DATABASE: $MARIADB_DATABASE
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MARIADB_DATABASE: ${{ secrets.MARIADB_DATABASE }}
         ports:
           - 3306:3306
         options: >-
