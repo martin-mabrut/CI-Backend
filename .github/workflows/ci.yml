@@ -2,18 +2,18 @@ name : CI Symfony
 run-name: CI Terminée et sécurisée.
 on: [push]
 
+env:
+  APP_ENV: ${{ secrets.APP_ENV }}
+  DEFAULT_URI: ${{ secrets.DEFAULT_URI }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  KERNEL_CLASS: ${{ secrets.KERNEL_CLASS }}
+  ES_HOST: ${{ secrets.ES_HOST }}
+  ES_PORT: ${{ secrets.ES_PORT }}
+
 jobs:
   symfony:
     name: CI symfony
     runs-on: ubuntu-latest
-
-    env:
-      APP_ENV: ${{ secrets.APP_ENV }}
-      DEFAULT_URI: ${{ secrets.DEFAULT_URI }}
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      KERNEL_CLASS: ${{ secrets.KERNEL_CLASS }}
-      ES_HOST: ${{ secrets.ES_HOST }}
-      ES_PORT: ${{ secrets.ES_PORT }}
 
     services:
       mariadb:
