@@ -1,5 +1,5 @@
 name : CI Symfony
-run-name: C'est ciao !
+run-name: Cette fois-ci c'est la bonne Gwenola tkt t'es la best !
 on: [push]
 jobs:
   symfony:
