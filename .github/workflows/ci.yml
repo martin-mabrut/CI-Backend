@@ -1,5 +1,5 @@
 name : CI Symfony
-run-name: Pourquoi pas hein !
+run-name: Pourquoi pas hein allez !
 on: [push]
 jobs:
   symfony:
@@ -7,17 +7,17 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      APP_ENV: ${{ secrets.test }}
-      DATABASE_URL: ${{ secrets.mysql://root:root@127.0.0.1:3306/pitstop }}
-      ES_HOST: ${{ secrets.localhost }}
-      ES_PORT: ${{ secrets.8000 }}
+      APP_ENV: ${{ secrets.APP_ENV }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      ES_HOST: ${{ secrets.ES_HOST }}
+      ES_PORT: ${{ secrets.ES_PORT }}
 
     services:
       mariadb:
         image: mariadb:10.6
         env:
-          MYSQL_ROOT_PASSWORD: ${{ secrets.root }}
-          MARIADB_DATABASE: ${{ secrets.pitstop_test }}
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MARIADB_DATABASE: ${{ secrets.MARIADB_DATABASE }}
         ports:
           - 3306:3306
         options: >-
