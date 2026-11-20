@@ -58,7 +58,7 @@ jobs:
         php bin/console lint:translations
 
     - name: Php stan
-      run: composer require --dev phpstan/phpstan
+      run: vendor/bin/phpstan analyse src --level=2
 
     - name: CS-fixer
       run: vendor/bin/php-cs-fixer fix
